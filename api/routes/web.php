@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Api
+Route::any('home', 'ApiController@index');
