@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 //Api
-Route::any('home', 'ApiController@index');
-Route::any('latest-article', 'ApiController@getLatestArticles');
-Route::any('popular-article', 'ApiController@getPopularArticles');
+Route::get('home', 'ApiController@index');
+Route::get('latest-article', 'ApiController@getLatestArticles');
+Route::get('popular-article', 'ApiController@getPopularArticles');
 
