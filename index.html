@@ -22,7 +22,6 @@
 </head>
 <body>
 
-
 <div class="expanded-menu visible-xs">
     <ul class="nav navbar-nav secondary-menu">
         <li class="nav-item-bangla"><a href="#">বাংলা</a></li>
@@ -173,8 +172,6 @@
         <div class="row">
             <div class="col-md-2">
 
-                <div id = "app"></div>
-                <div id = "LatestArticle"></div>
                 <h2 class="title">Tonic Apnar Bhalo Thakar Masterplan</h2>
                 <div class="masterplan-hr hidden-xs"></div>
                 <p>
@@ -224,6 +221,7 @@
         </div>
     </div>
 </section>
+
 
 <section class="content featured-and-trending">
     <div class="container">
@@ -419,67 +417,9 @@
 
         </div>
         <div class="row hidden-xs">
-            <div class="col-xs-12 col-md-4 popular-article">
-                <div class="card">
-                    <a href="#" class="clickable-card"></a>
-                    <div class="card-article-image">
-                        <img src="images/food-healthy-morning-cereals.jpg">
-                        <div class="category-banner">Lifestyle</div>
-                    </div>
-                    <div class="card-article">
-                        <h3>The ultimate guide to remaining healthy</h3>
-                        <div class="clearfix">
-                            <p class="pull-left"> 185 Views</p>
-                            <p class="articles-seen-by pull-left"><i class="fa fa-smile-o"></i> 223</p>
-                        </div>
-                        <div class="clearfix">
-                            <p class="pull-left"> 2 Days Ago</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-4 popular-article">
-                <div class="card">
-                    <a href="#" class="clickable-card"></a>
-                    <div class="card-article-image">
-                        <img src="images/pexels-photo.jpg">
-                        <div class="category-banner">Lifestyle</div>
-                    </div>
-                    <div class="card-article">
-                        <h3>The top 25 reasons why people are not drinking enough water</h3>
-                        <div class="clearfix">
-                            <p class="pull-left"> 185 Views</p>
-                            <p class="articles-seen-by pull-left"><i class="fa fa-smile-o"></i> 223</p>
-                        </div>
-                        <div class="author-info clearfix">
-                            <div class="author-pic pull-left">
-                                <img src="images/anika.jpg">
-                            </div>
-                            <p class="pull-left">Anika Rabbani <span> &bull; </span> </p>
-                            <p class="pull-left"> January 24, 2016</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-4 popular-article">
-                <div class="card">
-                    <a href="#" class="clickable-card"></a>
-                    <div class="card-article-image">
-                        <img src="images/shutterstock.jpg">
-                        <div class="category-banner">Lifestyle</div>
-                    </div>
-                    <div class="card-article">
-                        <h3>The ultimate guide to remaining healthy</h3>
-                        <div class="clearfix">
-                            <p class="pull-left"> 185 Views</p>
-                            <p class="articles-seen-by pull-left"><i class="fa fa-smile-o"></i> 223</p>
-                        </div>
-                        <div class="clearfix">
-                            <p class="pull-left"> January 24, 2016</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            <div id="react-latest-articles"></div>
+
         </div>
     </div>
 </section>
@@ -619,8 +559,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
-<script src = "index.js"></script>
+<!-- included react js -->
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
 
+<!-- included react-dom js -->
+<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+
+<!-- included babel core to parse jsx into browser -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+
+<!-- react one page app -->
+<script type="text/babel" src="app/react-app-home.jsx"></script>
+
+<script src="js/script.js"></script>
 </body>
 </html>
