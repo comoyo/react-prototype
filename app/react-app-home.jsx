@@ -4,15 +4,13 @@ var LatestArticle = React.createClass({
 
     getInitialState: function() {
         return {
-            data: [], title: [], filename: [], formatted_created_on: []
+            data: []
         }
     },
 
 
     componentDidMount: function() {
         $.get("/api/latest-article", function(result) {
-
-            console.log(result);
 
             this.setState({
                 data: result
@@ -24,13 +22,13 @@ var LatestArticle = React.createClass({
     render: function() {
         return (
             <div>
-                {this.state.data.map((latest, i) => <LatestContainer key = {i} data = {latest} />)}
+                {this.state.data.map((latest, i) => <LatestWidget key = {i} data = {latest} />)}
             </div>
         );
     }
 });
 
-class LatestContainer extends React.Component {
+class LatestWidget extends React.Component {
     render() {
         return (
 
@@ -92,20 +90,15 @@ var PopularArticle = React.createClass({
 
         return (
             <div>
-                {
-                    this.state.data.map(function (popular, i) {
-                        return <li key={i}>{popular.title}</li>
-                    })
-                }
+                {this.state.data.map((latest, i) => <PopularWidget key = {i} data = {latest} />)}
             </div>
         );
     }
 
 });
 
-//{this.state.data.map((latest, i) => <PopularContainer key = {i} data = {latest} />)}
 
-class PopularContainer extends React.Component {
+class PopularWidget extends React.Component {
     render() {
         return (
 
