@@ -28,14 +28,31 @@ class ApiController extends Controller
 
      public function index()
      {
-         $videodata = DB::table('node')->select()->orderBy('nid', 'desc')->limit(5)
-             ->get();
+//         $videodata = DB::table('node')->select()->orderBy('nid', 'desc')->limit(5)
+//             ->get();
+//
+//         $sql  = "SELECT *FROM node AS n JOIN
+//                               field_data_body AS b ON(b.entity_id = n.nid) JOIN
+//                               field_data_field_thumbnil AS t ON(n.nid = t.entity_id ) JOIN
+//                               file_managed AS f ON (t.field_thumbnil_fid = f.fid) WHERE n.type='article' ORDER BY nid DESC LIMIT 0, 3";
+//         $groupuserlist = DB::select(DB::raw($sql));
+//
+//         header('Content-Type: application/json');
+//         die(json_encode($groupuserlist));
 
-         $sql  = "SELECT *FROM node AS n JOIN 
-                               field_data_body AS b ON(b.entity_id = n.nid) JOIN 
-                               field_data_field_thumbnil AS t ON(n.nid = t.entity_id ) JOIN 
-                               file_managed AS f ON (t.field_thumbnil_fid = f.fid) WHERE n.type='article' ORDER BY nid DESC LIMIT 0, 3";
-         $groupuserlist = DB::select(DB::raw($sql));
-         die(json_encode($groupuserlist));
+         $latest = array(
+             array(
+                 'id' => 1,
+                 'name' => 'shimul'
+             ),
+             array(
+                 'id' => 2,
+                 'name' => 'rubi'
+             )
+         );
+
+         header('Content-Type: application/json');
+//         echo json_encode($latest);
+         die(json_encode($latest));
      }
 }

@@ -20,3 +20,20 @@ Route::get('/user', function (Request $request) {
 Route::get('/hello', function () {
     return 'welcome shimul';
 });
+
+
+Route::get('names', function()
+{
+    $arr =  array(
+        'name' => "John",
+        'age' => "Mary",
+        'location' => "Steven"
+    );
+
+    return Response::json($arr);
+})->middleware('cors');
+
+
+//Route::group(['middleware' => 'cors'], function(Router $router){
+//    $router->get('api', 'ApiController@index');
+//});
