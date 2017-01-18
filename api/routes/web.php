@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 
 //Api
-Route::get('home', 'ApiController@index');
-Route::get('latest-article', 'ApiController@getLatestArticles');
-Route::get('popular-article', 'ApiController@getPopularArticles');
+Route::any('home', 'ApiController@index');
+Route::any('latest-article', 'ApiController@getLatestArticles')->middleware('cors');
+Route::any('popular-article', 'ApiController@getPopularArticles');
+
 
