@@ -51,18 +51,9 @@ class ApiController extends Controller
 
     public function getPopularArticles(Request $request)
     {
-        //header('Content-Type: application/json');
         $limit = $request->input('limit') ? $request->input('limit') : $this->defaultRecordCount;
         $start = $request->input('start') ? $request->input('start') : 0;
-
-        $sql = "SELECT sum(value) as total_vote_count, entity_id FROM votingapi_vote WHERE 1 GROUP by entity_id ORDER BY total_vote_count DESC LIMIT {$start}, {$limit}";
-        $data = DB::select(DB::raw($sql));
-        $popularArticleId = array();
-        foreach($data as $item)
-        {
-            $popularArticleId[] = $item->entity_id;
-        }
-
+/*
         $sql  = "SELECT n.nid,
                         n.title,
                         c.totalcount AS total_read_count,
@@ -78,11 +69,24 @@ class ApiController extends Controller
                                           entity_id FROM votingapi_vote 
                                           GROUP by entity_id 
                                           ORDER BY total_vote_count DESC 
-                                          LIMIT {$start}, {$limit}   
+                                          LIMIT {$start}, 20   
                                ) AS v ON(v.entity_id = n.nid) JOIN
                                field_data_field_thumbnil AS t ON(n.nid = t.entity_id ) JOIN 
                                file_managed AS f ON (t.field_thumbnil_fid = f.fid) 
                                WHERE n.type='article' ORDER BY total_vote_count DESC LIMIT {$start}, {$limit}";
+*/
+        $sql  = "SELECT n.nid,
+                        n.title,
+                        c.totalcount AS total_read_count,
+                        n.created AS created_on,
+                        from_unixtime(n.created, '%D %M %Y %h:%i:%s') AS formatted_created_on,
+                        f.filename
+                        FROM node AS n JOIN 
+                               node_counter AS c ON(c.nid = n.nid) JOIN
+                               field_data_field_thumbnil AS t ON(n.nid = t.entity_id ) JOIN 
+                               file_managed AS f ON (t.field_thumbnil_fid = f.fid) 
+                               WHERE n.type='article' ORDER BY total_read_count DESC LIMIT {$start}, {$limit}";
+
         $data = DB::select(DB::raw($sql));
         return Response::json($data);
     }
