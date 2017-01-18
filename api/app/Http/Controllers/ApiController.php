@@ -8,6 +8,7 @@ use Log;
 use DateTime;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
 
 class ApiController extends Controller
 {
@@ -24,7 +25,7 @@ class ApiController extends Controller
 
     public function getLatestArticles(Request $request)
     {
-        header('Content-Type: application/json');
+
         $limit = $request->input('limit') ? $request->input('limit') : 5;
         $start = $request->input('start') ? $request->input('start') : 0;
 
@@ -44,7 +45,9 @@ class ApiController extends Controller
                                file_managed AS f ON (t.field_thumbnil_fid = f.fid) 
                                WHERE n.type='article' ORDER BY nid DESC LIMIT {$start}, {$limit}";
         $data = DB::select(DB::raw($sql));
-        die(json_encode($data));
+
+        return Response::json($data);
+//        die(json_encode($data));
     }
 
     public function getSlider(Request $request)
