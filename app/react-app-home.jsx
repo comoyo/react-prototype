@@ -1,24 +1,4 @@
-//var Greeting = React.createClass({
-//    render: function() {
-//        return (
-//            <p>{this.props.message}</p>
-//        );
-//    }
-//});
-//
-//setInterval(function() {
-//    var messages = ['Hello, World', 'Hello, Planet', 'Hello, Universe'];
-//    var randomMessage = messages[Math.floor((Math.random() * 3))];
-//
-//    ReactDOM.render(
-//        <Greeting message={randomMessage}/>,
-//        document.getElementById('greeting-div')
-//    );
-//}, 2000);
-
 var LatestArticle = React.createClass({
-
-
 
     getInitialState: function() {
         return {
@@ -42,23 +22,15 @@ var LatestArticle = React.createClass({
     render: function() {
         return (
             <div>
-                {this.state.data.map((latest, i) => <TableRow key = {i} data = {latest} />)}
+                {this.state.data.map((latest, i) => <LatestContainer key = {i} data = {latest} />)}
             </div>
         );
     }
 });
 
-class TableRow extends React.Component {
+class LatestContainer extends React.Component {
     render() {
         return (
-
-        //<ul>
-        //    <li>{this.props.data.title}</li>
-        //    <li>{this.props.data.nid}</li>
-        //    <li>{this.props.data.filename}</li>
-        //</ul>
-        //    <div className={"col-xs-12 col-md-4 popular-article"}>
-        //    </div>
 
                 <div className={"col-xs-12 col-md-4 popular-article"}>
                     <div className={"card"}>
@@ -84,7 +56,6 @@ class TableRow extends React.Component {
         );
     }
 }
-
 
 
 ReactDOM.render(
