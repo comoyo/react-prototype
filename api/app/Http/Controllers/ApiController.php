@@ -57,11 +57,18 @@ class ApiController extends Controller
     {
         $sql  = "SELECT n.nid,
                         n.title,
-                        n.created AS created_on,
-                        from_unixtime(n.created, '%D %M %Y %h:%i:%s') AS formatted_created_on
+                        b.body_value,
+                        n.created AS created_on,  
+                        from_unixtime(n.created, '%D %M %Y %h:%i:%s') AS formatted_created_on,
+                        f.filename, 
+                        f.uri
                         FROM node AS n JOIN 
-                               node_counter AS c ON(c.nid = n.nid) 
-                               WHERE n.type='carousel' AND n.status = 1 ORDER BY nid DESC";
+                               node_counter AS c ON(c.nid = n.nid) JOIN
+                               field_data_field_carousel_category AS cc ON(cc.entity_id = n.nid)  JOIN 
+                               field_data_body AS b ON(n.nid = b.entity_id) JOIN
+                               field_data_field_image AS i ON(n.nid = i.entity_id) JOIN 
+                               file_managed AS f ON (i.field_image_fid = f.fid)
+                               WHERE n.type='carousel'  AND cc.field_carousel_category_value = 'home' AND n.status = 1 ORDER BY nid DESC";
         $data = DB::select(DB::raw($sql));
 
         return Response::json($data, 200, array(), JSON_PRETTY_PRINT);
