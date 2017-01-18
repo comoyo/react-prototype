@@ -19,5 +19,6 @@ Route::get('/', function () {
 Route::any('home', 'ApiController@index');
 Route::any('latest-article', 'ApiController@getLatestArticles')->middleware('cors');
 Route::any('popular-article', 'ApiController@getPopularArticles');
+Route::any('slider', 'ApiController@getSliders');
 
 
