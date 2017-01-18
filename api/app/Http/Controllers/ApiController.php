@@ -31,12 +31,15 @@ class ApiController extends Controller
         //                       taxonomy_term_data AS td ON(ti.tid = td.tid) JOIN
         $sql  = "SELECT n.nid,
                         n.title,
+                        td.name as taxonomy_name,
                         c.totalcount AS total_read_count,
                         n.created AS created_on,
                         from_unixtime(n.created, '%D %M %Y') AS formatted_created_on,
                         f.filename 
                         FROM node AS n JOIN 
                                node_counter AS c ON(c.nid = n.nid) JOIN
+                               field_data_field_category AS fc ON(fc.entity_id = n.nid) JOIN
+                               taxonomy_term_data AS td ON(fc.field_category_tid = td.tid) JOIN
                                field_data_field_thumbnil AS t ON(n.nid = t.entity_id ) JOIN 
                                file_managed AS f ON (t.field_thumbnil_fid = f.fid) 
                                WHERE n.type='article' AND n.status = 1 ORDER BY nid DESC LIMIT {$this->start}, {$this->limit}";
@@ -50,13 +53,9 @@ class ApiController extends Controller
         $sql  = "SELECT n.nid,
                         n.title,
                         n.created AS created_on,
-                        from_unixtime(n.created, '%D %M %Y %h:%i:%s') AS formatted_created_on,
-                        f.filename 
+                        from_unixtime(n.created, '%D %M %Y %h:%i:%s') AS formatted_created_on
                         FROM node AS n JOIN 
-                               node_counter AS c ON(c.nid = n.nid) JOIN
-                               field_data_body AS b ON(b.entity_id = n.nid) JOIN 
-                               field_data_field_thumbnil AS t ON(n.nid = t.entity_id ) JOIN 
-                               file_managed AS f ON (t.field_thumbnil_fid = f.fid) 
+                               node_counter AS c ON(c.nid = n.nid) 
                                WHERE n.type='carousel' AND n.status = 1 ORDER BY nid DESC";
         $data = DB::select(DB::raw($sql));
 
@@ -89,12 +88,15 @@ class ApiController extends Controller
 */
         $sql  = "SELECT n.nid,
                         n.title,
+                        td.name as taxonomy_name,
                         c.totalcount AS total_read_count,
                         n.created AS created_on,
                         from_unixtime(n.created, '%D %M %Y %h:%i:%s') AS formatted_created_on,
                         f.filename
                         FROM node AS n JOIN 
                                node_counter AS c ON(c.nid = n.nid) JOIN
+                               field_data_field_category AS fc ON(fc.entity_id = n.nid) JOIN
+                               taxonomy_term_data AS td ON(fc.field_category_tid = td.tid) JOIN
                                field_data_field_thumbnil AS t ON(n.nid = t.entity_id ) JOIN 
                                file_managed AS f ON (t.field_thumbnil_fid = f.fid) 
                                WHERE n.type='article' AND n.status = 1 ORDER BY total_read_count DESC LIMIT {$this->start}, {$this->limit}";
