@@ -1,4 +1,30 @@
 
+//class MyClass extends React.Component{
+//
+//
+//    getInitialState(){
+//        return {
+//            data: []
+//        }
+//    }
+//
+//    componentDidMount() {
+//        console.log('Component DID MOUNT!')
+//    }
+//
+//    render(){
+//        return(
+//            <h1>Hello React</h1>
+//        )
+//    }
+//}
+//
+//export default MyClass;
+
+ReactDOM.render(
+    <MyClass />, document.getElementById('react-test')
+);
+
 // latest articles
 var LatestArticle = React.createClass({
 
@@ -42,12 +68,25 @@ class LatestWidget extends React.Component {
                             <div className={"card-article"}>
                                 <h3>{this.props.data.title}</h3>
                                 <div className={"clearfix"}>
-                                    <p className={"pull-left"}> 185 Views</p>
+                                    <p className={"pull-left"}> {this.props.data.total_read_count} Views</p>
                                     <p className={"articles-seen-by pull-left"}><i className={"fa fa-smile-o"}></i> 223</p>
                                 </div>
-                                <div className={"clearfix"}>
-                                    <p className={"pull-left"}>{this.props.data.formatted_created_on}</p>
-                                </div>
+
+                                <div className={"author-info clearfix"}>
+                                    <div className={"author-pic pull-left"}>
+                                        <div className={"user-picture"}>
+                                            <a href="/bn/users/rafi" title="View user profile.">
+                                                <img src={"http://mytonic-revamp-staging.s3.amazonaws.com/revamp/s3fs-public/pictures/" + this.props.data.profile_image} />
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                        <p className={"pull-left"}>{this.props.data.field_user_full_name_value}<span> • </span></p>
+
+                                        <p className={"pull-left"}><span className={"post-date"}>
+                                            {this.props.data.formatted_created_on}</span></p>
+                                    </div>
+
                             </div>
                         </div>
                     </div>
@@ -76,8 +115,6 @@ var PopularArticle = React.createClass({
 
     componentDidMount: function() {
         $.get("api/popular-article", function(result) {
-
-            console.log(result);
 
             this.setState({
                 data: result
@@ -113,9 +150,10 @@ class PopularWidget extends React.Component {
                             <a href="#" className={"clickable-card"}></a>
                             <p className={"visible-xs post-date-mobile"}> {this.props.data.formatted_created_on}</p>
                             <div className={"author-pic pull-left"}>
-                                <img src="images/anika.jpg" />
+                                <img src={"http://mytonic-revamp-staging.s3.amazonaws.com/revamp/s3fs-public/pictures/" + this.props.data.profile_image} />
                                 </div>
-                                <p className={"pull-left"}>Anika Rabbani <span> &bull; </span> </p>
+
+                                <p className={"pull-left"}>{this.props.data.field_user_full_name_value} <span> &bull; </span> </p>
                                 <p className={"pull-left hidden-xs"}> {this.props.data.formatted_created_on}</p>
                             </div>
                         </div>
