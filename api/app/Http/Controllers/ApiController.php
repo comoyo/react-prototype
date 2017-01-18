@@ -27,21 +27,26 @@ class ApiController extends Controller
 
     public function getLatestArticles(Request $request)
     {
-        //taxonomy_index as ti ON(ti.nid = n.nid) JOIN
-        //                       taxonomy_term_data AS td ON(ti.tid = td.tid) JOIN
         $sql  = "SELECT n.nid,
                         n.title,
                         td.name as taxonomy_name,
+                        ufn.field_user_full_name_value,
                         c.totalcount AS total_read_count,
                         n.created AS created_on,
                         from_unixtime(n.created, '%D %M %Y') AS formatted_created_on,
-                        f.filename 
+                        f.filename, 
+                        f.uri,
+                        pf.filename AS profile_image,
+                        pf.uri AS profile_image_uri
                         FROM node AS n JOIN 
                                node_counter AS c ON(c.nid = n.nid) JOIN
+                               users AS u ON(n.uid = u.uid) JOIN
+                               field_data_field_user_full_name AS ufn ON(u.uid = ufn.entity_id) JOIN
                                field_data_field_category AS fc ON(fc.entity_id = n.nid) JOIN
                                taxonomy_term_data AS td ON(fc.field_category_tid = td.tid) JOIN
                                field_data_field_thumbnil AS t ON(n.nid = t.entity_id ) JOIN 
-                               file_managed AS f ON (t.field_thumbnil_fid = f.fid) 
+                               file_managed AS f ON (t.field_thumbnil_fid = f.fid) JOIN
+                               file_managed AS pf ON(u.picture = pf.fid)
                                WHERE n.type='article' AND n.status = 1 ORDER BY nid DESC LIMIT {$this->start}, {$this->limit}";
         $data = DB::select(DB::raw($sql));
 
@@ -89,16 +94,23 @@ class ApiController extends Controller
         $sql  = "SELECT n.nid,
                         n.title,
                         td.name as taxonomy_name,
+                        ufn.field_user_full_name_value,
                         c.totalcount AS total_read_count,
                         n.created AS created_on,
-                        from_unixtime(n.created, '%D %M %Y %h:%i:%s') AS formatted_created_on,
-                        f.filename
+                        from_unixtime(n.created, '%D %M %Y') AS formatted_created_on,
+                        f.filename, 
+                        f.uri,
+                        pf.filename AS profile_image,
+                        pf.uri AS profile_image_uri
                         FROM node AS n JOIN 
                                node_counter AS c ON(c.nid = n.nid) JOIN
+                               users AS u ON(n.uid = u.uid) JOIN 
+                               field_data_field_user_full_name AS ufn ON(u.uid = ufn.entity_id) JOIN
                                field_data_field_category AS fc ON(fc.entity_id = n.nid) JOIN
                                taxonomy_term_data AS td ON(fc.field_category_tid = td.tid) JOIN
                                field_data_field_thumbnil AS t ON(n.nid = t.entity_id ) JOIN 
-                               file_managed AS f ON (t.field_thumbnil_fid = f.fid) 
+                               file_managed AS f ON (t.field_thumbnil_fid = f.fid) JOIN
+                               file_managed AS pf ON(u.picture = pf.fid)
                                WHERE n.type='article' AND n.status = 1 ORDER BY total_read_count DESC LIMIT {$this->start}, {$this->limit}";
 
         $data = DB::select(DB::raw($sql));
