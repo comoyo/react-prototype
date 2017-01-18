@@ -1,3 +1,5 @@
+
+// latest articles
 var LatestArticle = React.createClass({
 
     getInitialState: function() {
@@ -37,7 +39,7 @@ class LatestContainer extends React.Component {
                         <a href="#" className={"clickable-card"}></a>
                         <div className={"card-article-image"}>
                             <img src={"http://mytonic-revamp-staging.s3.amazonaws.com/revamp/s3fs-public/" + this.props.data.filename} />
-                                <div className={"category-banner"}>Lifestyle</div>
+                                <div className={"category-banner"}>{this.props.data.taxonomy_name}</div>
                             </div>
                             <div className={"card-article"}>
                                 <h3>{this.props.data.title}</h3>
@@ -60,4 +62,77 @@ class LatestContainer extends React.Component {
 
 ReactDOM.render(
     <LatestArticle />, document.getElementById('react-latest-articles')
+);
+
+
+// popular articles
+
+var PopularArticle = React.createClass({
+
+    getInitialState: function() {
+        return {
+            data: []
+        }
+    },
+
+
+    componentDidMount: function() {
+        $.get("api/popular-article", function(result) {
+
+            console.log(result);
+
+            this.setState({
+                data: result
+            });
+        }.bind(this));
+    },
+
+
+    render: function() {
+
+        return (
+            <div>
+                {
+                    this.state.data.map(function (popular, i) {
+                        return <li key={i}>{popular.title}</li>
+                    })
+                }
+            </div>
+        );
+    }
+
+});
+
+//{this.state.data.map((latest, i) => <PopularContainer key = {i} data = {latest} />)}
+
+class PopularContainer extends React.Component {
+    render() {
+        return (
+
+            <div className={"row trending-article"}>
+                <div className={"col-xs-5 col-md-4 trending-article-img"}>
+                    <a href="#"><img src={"http://mytonic-revamp-staging.s3.amazonaws.com/revamp/s3fs-public/" + this.props.data.filename} /></a>
+                    <div className={"category-banner"}>{this.props.data.taxonomy_name}</div>
+                    </div>
+                    <div className={"col-xs-7 col-md-8 trending-article-info"}>
+                        <h3><a href="#">{this.props.data.title}</a></h3>
+                        <div className={"author-info clearfix"}>
+                            <a href="#" className={"clickable-card"}></a>
+                            <p className={"visible-xs post-date-mobile"}> {this.props.data.formatted_created_on}</p>
+                            <div className={"author-pic pull-left"}>
+                                <img src="images/anika.jpg" />
+                                </div>
+                                <p className={"pull-left"}>Anika Rabbani <span> &bull; </span> </p>
+                                <p className={"pull-left hidden-xs"}> {this.props.data.formatted_created_on}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+        );
+    }
+}
+
+ReactDOM.render(
+    <PopularArticle />, document.getElementById('react-popular-articles')
 );
