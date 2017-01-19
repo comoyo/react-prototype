@@ -36,7 +36,7 @@ var LatestArticle = React.createClass({
 
 
     componentDidMount: function() {
-        $.get("/api/latest-article", function(result) {
+        $.get("api/latest-article", function(result) {
 
             this.setState({
                 data: result
@@ -181,7 +181,7 @@ var HomeCarousel = React.createClass({
 
 
     componentDidMount: function() {
-        $.get("/api/slider", function(result) {
+        $.get("api/slider", function(result) {
 
             this.setState({
                 data: result
