@@ -12,7 +12,7 @@ var LatestArticle = React.createClass({
 
 
     componentDidMount: function() {
-        $.get("api/latest-article", function(result) {
+        $.get("http://54.169.245.82/react-prototype/api/latest-article", function(result) {
 
             this.setState({
                 data: result

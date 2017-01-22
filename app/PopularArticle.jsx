@@ -13,7 +13,7 @@ var PopularArticle = React.createClass({
 
 
     componentDidMount: function() {
-        $.get("api/popular-article", function(result) {
+        $.get("http://54.169.245.82/react-prototype/api/popular-article", function(result) {
 
             this.setState({
                 data: result
