@@ -58,19 +58,27 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _LatestArticle = __webpack_require__(184);
+	var _Navigation = __webpack_require__(184);
+
+	var _Navigation2 = _interopRequireDefault(_Navigation);
+
+	var _LatestArticle = __webpack_require__(185);
 
 	var _LatestArticle2 = _interopRequireDefault(_LatestArticle);
 
-	var _Carousel = __webpack_require__(185);
+	var _Carousel = __webpack_require__(186);
 
 	var _Carousel2 = _interopRequireDefault(_Carousel);
 
-	var _PopularArticle = __webpack_require__(186);
+	var _PopularArticle = __webpack_require__(187);
 
 	var _PopularArticle2 = _interopRequireDefault(_PopularArticle);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//ReactDOM.render(
+	//    <Navigation />, document.getElementById('react-navigation')
+	//);
 
 	_reactDom2.default.render(_react2.default.createElement(_LatestArticle2.default, null), document.getElementById('react-latest-articles'));
 
@@ -32039,6 +32047,410 @@
 /* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Navigation = function (_React$Component) {
+	    _inherits(Navigation, _React$Component);
+
+	    function Navigation() {
+	        _classCallCheck(this, Navigation);
+
+	        return _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).apply(this, arguments));
+	    }
+
+	    _createClass(Navigation, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(NaviMobile, null),
+	                "//",
+	                _react2.default.createElement(NaviMain, null)
+	            );
+	        }
+	    }]);
+
+	    return Navigation;
+	}(_react2.default.Component);
+
+	var NaviMobile = function (_React$Component2) {
+	    _inherits(NaviMobile, _React$Component2);
+
+	    function NaviMobile() {
+	        _classCallCheck(this, NaviMobile);
+
+	        return _possibleConstructorReturn(this, (NaviMobile.__proto__ || Object.getPrototypeOf(NaviMobile)).apply(this, arguments));
+	    }
+
+	    _createClass(NaviMobile, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "expanded-menu visible-xs" },
+	                _react2.default.createElement(
+	                    "ul",
+	                    { className: "nav navbar-nav secondary-menu" },
+	                    _react2.default.createElement(
+	                        "li",
+	                        { className: "nav-item-bangla" },
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "#" },
+	                            "\u09AC\u09BE\u0982\u09B2\u09BE"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "li",
+	                        null,
+	                        _react2.default.createElement(
+	                            "form",
+	                            { className: "navbar-form", role: "search" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "input-group" },
+	                                _react2.default.createElement(
+	                                    "div",
+	                                    { className: "input-group-btn" },
+	                                    _react2.default.createElement(
+	                                        "button",
+	                                        { className: "btn btn-default", type: "submit" },
+	                                        _react2.default.createElement("i", { className: "glyphicon glyphicon-search" })
+	                                    )
+	                                ),
+	                                _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Search", name: "srch-term", id: "srch-term" })
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "ul",
+	                    { className: "nav navbar-nav main-menu" },
+	                    _react2.default.createElement(
+	                        "li",
+	                        { className: "active" },
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "#" },
+	                            "Home"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "li",
+	                        null,
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "#about" },
+	                            "Topics"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "li",
+	                        { className: "dropdown" },
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "#", className: "dropdown-toggle", "data-toggle": "dropdown", role: "button", "aria-haspopup": "true", "aria-expanded": "false" },
+	                            "Tonic Benefits",
+	                            _react2.default.createElement("span", { className: "dropdown-arrow" })
+	                        ),
+	                        _react2.default.createElement(
+	                            "ul",
+	                            { className: "dropdown-menu" },
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#" },
+	                                    "Overview"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#" },
+	                                    "Tonic Discounts"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#" },
+	                                    "Tonic Cash"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#" },
+	                                    "Tonic Daktar"
+	                                )
+	                            )
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "li",
+	                        null,
+	                        _react2.default.createElement(
+	                            "a",
+	                            { href: "#contact" },
+	                            "Tonic Heroes"
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return NaviMobile;
+	}(_react2.default.Component);
+
+	var NaviMain = function (_React$Component3) {
+	    _inherits(NaviMain, _React$Component3);
+
+	    function NaviMain() {
+	        _classCallCheck(this, NaviMain);
+
+	        return _possibleConstructorReturn(this, (NaviMain.__proto__ || Object.getPrototypeOf(NaviMain)).apply(this, arguments));
+	    }
+
+	    _createClass(NaviMain, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "nav",
+	                { className: "navbar navbar-default navbar-fixed-top" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "first-header hidden-xs" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "container" },
+	                        _react2.default.createElement(
+	                            "ul",
+	                            { className: "nav navbar-nav secondary-menu" },
+	                            _react2.default.createElement(
+	                                "li",
+	                                { className: "hidden-xs" },
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#" },
+	                                    "Contact Us"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                { className: "nav-item-bangla" },
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#" },
+	                                    "\u09AC\u09BE\u0982\u09B2\u09BE"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "li",
+	                                null,
+	                                _react2.default.createElement(
+	                                    "form",
+	                                    { className: "navbar-form", role: "search" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "input-group" },
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { className: "input-group-btn" },
+	                                            _react2.default.createElement(
+	                                                "button",
+	                                                { className: "btn btn-default", type: "submit" },
+	                                                _react2.default.createElement("i", { className: "glyphicon glyphicon-search" })
+	                                            )
+	                                        ),
+	                                        _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Search", name: "srch-term", id: "srch-term" })
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "container" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "row" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "col-md-12" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "navbar-header pull-left" },
+	                                _react2.default.createElement(
+	                                    "button",
+	                                    { type: "button", className: "navbar-toggle collapsed pull-left" },
+	                                    _react2.default.createElement(
+	                                        "span",
+	                                        { className: "sr-only" },
+	                                        "Toggle navigation"
+	                                    ),
+	                                    _react2.default.createElement("span", { className: "icon-bar" }),
+	                                    _react2.default.createElement("span", { className: "icon-bar" }),
+	                                    _react2.default.createElement("span", { className: "icon-bar" })
+	                                ),
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { className: "navbar-brand", href: "#" },
+	                                    _react2.default.createElement("img", { src: "dist/images/logo-tonic-color.svg" }),
+	                                    " "
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "ul",
+	                                { className: "user-menu pull-right" },
+	                                _react2.default.createElement(
+	                                    "li",
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        "a",
+	                                        { href: "../navbar/", className: "btn btn-tonic-link" },
+	                                        "Login"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "li",
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        "a",
+	                                        { href: "../navbar-static-top/", className: "btn btn-tonic-blue btn-tonic-round" },
+	                                        "Register"
+	                                    )
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "div",
+	                                { id: "navbar", className: "navbar-collapse collapse hidden-xs" },
+	                                _react2.default.createElement(
+	                                    "ul",
+	                                    { className: "nav navbar-nav main-menu" },
+	                                    _react2.default.createElement(
+	                                        "li",
+	                                        { className: "active" },
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            { href: "#" },
+	                                            "Home"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "li",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            { href: "#about" },
+	                                            "Topics"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "li",
+	                                        { className: "dropdown" },
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            { href: "#", className: "dropdown-toggle", "data-toggle": "dropdown", role: "button", "aria-haspopup": "true", "aria-expanded": "false" },
+	                                            "Tonic Benefits ",
+	                                            _react2.default.createElement("span", { "class": "caret" })
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "ul",
+	                                            { className: "dropdown-menu" },
+	                                            _react2.default.createElement(
+	                                                "li",
+	                                                null,
+	                                                _react2.default.createElement(
+	                                                    "a",
+	                                                    { href: "#" },
+	                                                    "Overview"
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "li",
+	                                                null,
+	                                                _react2.default.createElement(
+	                                                    "a",
+	                                                    { href: "#" },
+	                                                    "Tonic Discounts"
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "li",
+	                                                null,
+	                                                _react2.default.createElement(
+	                                                    "a",
+	                                                    { href: "#" },
+	                                                    "Tonic Cash"
+	                                                )
+	                                            ),
+	                                            _react2.default.createElement(
+	                                                "li",
+	                                                null,
+	                                                _react2.default.createElement(
+	                                                    "a",
+	                                                    { href: "#" },
+	                                                    "Tonic Daktar"
+	                                                )
+	                                            )
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "li",
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            "a",
+	                                            { href: "#contact" },
+	                                            "Tonic Heroes"
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return NaviMain;
+	}(_react2.default.Component);
+
+	exports.default = Navigation;
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -32196,7 +32608,7 @@
 	exports.default = LatestArticle;
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32238,7 +32650,6 @@
 	    componentDidMount: function componentDidMount() {
 	        _jquery2.default.get("http://54.169.245.82/react-prototype/api/slider", function (result) {
 	            //console.log(result);
-
 	            this.setState({
 	                data: result
 	            });
@@ -32331,7 +32742,7 @@
 	exports.default = HomeCarousel;
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

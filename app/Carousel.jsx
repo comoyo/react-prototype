@@ -15,7 +15,6 @@ var HomeCarousel = React.createClass({
     componentDidMount: function() {
         $.get("http://54.169.245.82/react-prototype/api/slider", function(result) {
             //console.log(result);
-            
             this.setState({
                 data: result
             });
