@@ -1,11 +1,19 @@
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import App from './App.jsx';
-import LatestArticle from './LatestArticle.jsx';
+import LatestArticle from './app/LatestArticle.jsx';
+import Carousel from './app/Carousel.jsx';
+import PopularArticle from './app/PopularArticle.jsx';
+
+ReactDOM.render(
+    <LatestArticle />, document.getElementById('react-latest-articles')
+);
 
 
-//ReactDOM.render(<App source="https://api.github.com/users/octocat/gists" />, document.getElementById('app'));
+ReactDOM.render(
+    <Carousel />, document.getElementById('react-home-carousel')
+);
 
-
-ReactDOM.render(<LatestArticle />, document.getElementById('LatestArticle'));
+ReactDOM.render(
+    <PopularArticle />, document.getElementById('react-popular-articles')
+);
