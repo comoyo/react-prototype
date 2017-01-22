@@ -43,4 +43,23 @@ $(document).ready(function() {
 
 		}
 	}
+
+
+    var swiperPopular = new Swiper('.swiper-container-popular', {
+        slidesPerView:'auto',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+
+    })
+
+    var swiperLatest = new Swiper('.swiper-container-latest', {
+        slidesPerView:'auto',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+
+    })
+
+
 }); 
