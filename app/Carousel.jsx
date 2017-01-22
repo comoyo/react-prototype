@@ -13,7 +13,7 @@ var HomeCarousel = React.createClass({
 
 
     componentDidMount: function() {
-        $.get("http://evergreen-react.dev/api/slider", function(result) {
+        $.get("api/slider", function(result) {
 
             this.setState({
                 data: result

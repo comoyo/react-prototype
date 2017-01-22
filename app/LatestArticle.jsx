@@ -12,7 +12,7 @@ var LatestArticle = React.createClass({
 
 
     componentDidMount: function() {
-        $.get("http://evergreen-react.dev/api/latest-article", function(result) {
+        $.get("api/latest-article", function(result) {
 
             this.setState({
                 data: result

@@ -32075,7 +32075,7 @@
 	    },
 
 	    componentDidMount: function componentDidMount() {
-	        _jquery2.default.get("http://evergreen-react.dev/api/latest-article", function (result) {
+	        _jquery2.default.get("api/latest-article", function (result) {
 
 	            this.setState({
 	                data: result
@@ -32236,7 +32236,7 @@
 	    },
 
 	    componentDidMount: function componentDidMount() {
-	        _jquery2.default.get("http://evergreen-react.dev/api/slider", function (result) {
+	        _jquery2.default.get("api/slider", function (result) {
 
 	            this.setState({
 	                data: result
@@ -32368,7 +32368,7 @@
 	    },
 
 	    componentDidMount: function componentDidMount() {
-	        _jquery2.default.get("http://evergreen-react.dev/api/popular-article", function (result) {
+	        _jquery2.default.get("api/popular-article", function (result) {
 
 	            this.setState({
 	                data: result

@@ -13,7 +13,7 @@ var PopularArticle = React.createClass({
 
 
     componentDidMount: function() {
-        $.get("http://evergreen-react.dev/api/popular-article", function(result) {
+        $.get("api/popular-article", function(result) {
 
             this.setState({
                 data: result
