@@ -32237,6 +32237,7 @@
 
 	    componentDidMount: function componentDidMount() {
 	        _jquery2.default.get("http://54.169.245.82/react-prototype/api/slider", function (result) {
+	            //console.log(result);
 
 	            this.setState({
 	                data: result
@@ -32295,7 +32296,9 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: "item" + this.props.active },
+	                '//',
 	                _react2.default.createElement('img', { className: "first-slide", src: 'images/pexels.jpeg', alt: 'First slide' }),
+	                _react2.default.createElement('img', { className: "first-slide", src: "http://mytonic-revamp-staging.s3.amazonaws.com/revamp/s3fs-public/" + this.props.data.filename }),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: "container" },
