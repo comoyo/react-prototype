@@ -1,4 +1,5 @@
 .crunch
-#node_modules
+node_modules
+node_modules_1
 .idea
 bower_components
