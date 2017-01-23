@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import React from 'react';
 
-// slider
+
 
 var HomeCarousel = React.createClass({
 
@@ -14,7 +14,6 @@ var HomeCarousel = React.createClass({
 
     componentDidMount: function() {
         $.get("http://54.169.245.82/react-prototype/api/slider", function(result) {
-            //console.log(result);
             this.setState({
                 data: result
             });
@@ -49,15 +48,12 @@ var HomeCarousel = React.createClass({
 
 });
 
-//{this.state.data.map((slider, i) => <SliderWidget key = {i} data = {slider} />)}
 
 class SliderWidget extends React.Component {
     render() {
         return (
 
             <div className={"item" + this.props.active}>
-                //<img className={"first-slide"} src="images/pexels.jpeg" alt="First slide" />
-
                 <img className={"first-slide"} src={"http://mytonic-revamp-staging.s3.amazonaws.com/revamp/s3fs-public/" + this.props.data.filename} />
                 <div className={"container"}>
                     <div className={"carousel-caption"}>
