@@ -4,49 +4,12 @@ class Navigation extends React.Component {
     render() {
         return (
             <div>
-                <NaviMobile/>
                 <NaviMain/>
             </div>
         );
     }
 }
 
-class NaviMobile extends React.Component {
-    render() {
-        return (
-            <div className={"expanded-menu visible-xs"}>
-                <ul className={"nav navbar-nav secondary-menu"}>
-                    <li className={"nav-item-bangla"}><a href="#">বাংলা</a></li>
-                    <li>
-                        <form className={"navbar-form"} role="search">
-                            <div className={"input-group"}>
-                                <div className={"input-group-btn"}>
-                                    <button className={"btn btn-default"} type="submit"><i className={"glyphicon glyphicon-search"}></i></button>
-                                </div>
-                                <input type="text" className={"form-control"} placeholder="Search" name="srch-term" id="srch-term" />
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-
-                <ul className={"nav navbar-nav main-menu"}>
-                    <li className={"active"}><a href="#">Home</a></li>
-                    <li><a href="#about">Topics</a></li>
-                    <li className={"dropdown"}>
-                        <a href="#" className={"dropdown-toggle"} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tonic Benefits<span className={"dropdown-arrow"}></span></a>
-                        <ul className={"dropdown-menu"}>
-                            <li><a href="#">Overview</a></li>
-                            <li><a href="#">Tonic Discounts</a></li>
-                            <li><a href="#">Tonic Cash</a></li>
-                            <li><a href="#">Tonic Daktar</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#contact">Tonic Heroes</a></li>
-                </ul>
-            </div>
-        );
-    }
-}
 
 class NaviMain extends React.Component {
     render() {
