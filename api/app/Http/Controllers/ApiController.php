@@ -129,7 +129,11 @@ class ApiController extends Controller
     {
     }
 
-    public function getRelatedArticles()
+    public function getTonicBenifit()
     {
+        $sql  = "SELECT bid, body FROM block_custom WHERE bid IN(5, 6, 8, 12) ORDER BY bid ASC";
+
+        $data = DB::select(DB::raw($sql));
+        return Response::json($data, 200, array(), JSON_PRETTY_PRINT);
     }
 }
