@@ -21,4 +21,7 @@ Route::any('latest-article', 'ApiController@getLatestArticles')->middleware('cor
 Route::any('popular-article', 'ApiController@getPopularArticles')->middleware('cors');
 Route::any('slider', 'ApiController@getSliders')->middleware('cors');
 
+Route::any('tonic-benifit', 'ApiController@getTonicBenifit')->middleware('cors');
+
+
 
