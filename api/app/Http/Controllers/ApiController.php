@@ -127,6 +127,33 @@ class ApiController extends Controller
 
     public function getTonicDoctors(Request $request)
     {
+        $this->limit = $request->input('limit') ? $request->input('limit') : 100;
+        $sql  = "SELECT n.nid,
+                        n.title,
+                        f.filename,
+                        f.uri,
+                        tdb.field_doctors_bio_value
+                        FROM node AS n JOIN 
+                               node_counter AS c ON(c.nid = n.nid) JOIN
+                               field_data_field_doctors_bio AS tdb ON(n.nid = tdb.entity_id) JOIN
+                               field_data_field_doctors_profile_image AS dpi ON(n.nid = dpi.entity_id ) JOIN 
+                               file_managed AS f ON (dpi.field_doctors_profile_image_fid = f.fid) 
+                               WHERE n.type='doctors_profile' AND n.status = 1 ORDER BY n.created DESC LIMIT {$this->start}, {$this->limit}";
+
+        $data = DB::select(DB::raw($sql));
+        return Response::json($data, 200, array(), JSON_PRETTY_PRINT);
+    }
+
+    function getTonicDoctorBlocks()
+    {
+        $sql  = "SELECT bid, body FROM block_custom WHERE bid IN(19, 20, 21, 22) ORDER BY bid ASC";
+
+        $data = DB::select(DB::raw($sql));
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+        exit;
+        return Response::json($data, 200, array(), JSON_PRETTY_PRINT);
     }
 
     public function getTonicBenifit()

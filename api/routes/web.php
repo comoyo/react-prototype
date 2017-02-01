@@ -24,3 +24,5 @@ Route::any('slider', 'ApiController@getSliders')->middleware('cors');
 Route::any('tonic-benifit', 'ApiController@getTonicBenifit')->middleware('cors');
 Route::any('tonic-cash', 'ApiController@getTonicCash')->middleware('cors');
 Route::any('tonic-jibon', 'ApiController@getTonicJibon')->middleware('cors');
+Route::any('tonic-doctor', 'ApiController@getTonicDoctors')->middleware('cors');
+Route::any('tonic-doctor-blocks', 'ApiController@getTonicDoctorBlocks')->middleware('cors');
