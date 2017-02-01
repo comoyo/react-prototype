@@ -136,4 +136,34 @@ class ApiController extends Controller
         $data = DB::select(DB::raw($sql));
         return Response::json($data, 200, array(), JSON_PRETTY_PRINT);
     }
+
+    public function getTonicDiscount()
+    {
+        /*
+        $sql  = "SELECT bid, body FROM block_custom WHERE bid IN(5, 6, 8, 12) ORDER BY bid ASC";
+
+        $data = DB::select(DB::raw($sql));
+        return Response::json($data, 200, array(), JSON_PRETTY_PRINT);
+        */
+    }
+    public function getTonicCash()
+    {
+        $sql  = "SELECT bid, body FROM block_custom WHERE bid IN(13, 14, 15, 17) ORDER BY bid ASC";
+
+        $data = DB::select(DB::raw($sql));
+        return Response::json($data, 200, array(), JSON_PRETTY_PRINT);
+    }
+
+    function getTonicJibon()
+    {
+        $sql  = "SELECT bid, body FROM block_custom WHERE bid IN(9, 10, 12) ORDER BY bid ASC";
+
+        $data = DB::select(DB::raw($sql));
+        return Response::json($data, 200, array(), JSON_PRETTY_PRINT);
+    }
+    function getTonicRelatedArticles()
+    {
+
+    }
+
 }
